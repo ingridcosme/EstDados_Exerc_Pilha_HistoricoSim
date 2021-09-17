@@ -50,17 +50,13 @@ public class Principal {
                 		hCont.inserir(historico, endereco);
                         break;
                 case 2: try {
-							endereco = hCont.remover(historico);
-							JOptionPane.showMessageDialog(null, "Último endereço "
-	                				+ "visitado <<"+endereco+">> removido!");
-						} catch (Exception e) {
+							hCont.remover(historico);
+							} catch (Exception e) {
 							e.printStackTrace();
 						}
                         break;
                 case 3: try {
-							endereco = hCont.consultar(historico);
-							JOptionPane.showMessageDialog(null, "Último endereço "
-	        						+ "visitado: "+endereco);
+							hCont.consultar(historico);
 						} catch (Exception e) {
 							e.printStackTrace();
 						}

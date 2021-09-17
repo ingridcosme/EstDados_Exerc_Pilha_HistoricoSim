@@ -30,7 +30,8 @@ public class HistoricoController {
 	}
 	
 	public boolean validar(String endereco) {
-		if(endereco.contains("http://www.")) {
+		String[] retorno = endereco.split("\\.");
+		if(retorno[0].equals("http://www") && retorno.length > 2) {
 			return true;
 		} else {
 			return false;
@@ -45,21 +46,21 @@ public class HistoricoController {
 		}
 	}
 	
-	public String remover(Pilha historico) throws Exception {
+	public void remover(Pilha historico) throws Exception {
 		if(historico.isEmpty()) {
 			throw new Exception("Não há endereços para remover!");
 		} else {
 			String endereco = historico.pop();
-			return endereco;
+			System.out.println("Último endereço visitado <<"+endereco+">> removido!");
 		}
 	}
 	
-	public String consultar(Pilha historico) throws Exception {
+	public void consultar(Pilha historico) throws Exception {
 		if(historico.isEmpty()) {
 			throw new Exception("Não há endereços para consultar!");
 		} else {
 			String endereco = historico.top();
-			return endereco;
+			System.out.println("Último endereço visitado: "+endereco);
 		}
 	}
 
